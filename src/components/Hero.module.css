@@ -1,0 +1,56 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 5rem;
+}
+
+.heroContent {
+  max-width: 800px;
+  position: relative;
+  z-index: 10;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  color: var(--accent);
+}
+
+.title {
+  margin-bottom: 1.5rem;
+}
+
+.description {
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 640px) {
+  .actions {
+    flex-direction: column;
+  }
+  .actions button {
+    width: 100%;
+  }
+}
