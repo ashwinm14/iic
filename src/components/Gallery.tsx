@@ -36,10 +36,10 @@ export default function Gallery() {
   }, []);
 
   return (
-    <section id="gallery" className="section" style={{ background: "rgba(5,5,15,0.4)" }}>
+    <section id="gallery" className={`section ${styles.gallerySection}`}>
       <div className="container">
         <div className={styles.header}>
-          <span className={styles.subtitle}>Our Memories</span>
+          <span className={styles.subtitle}>Campus Life & Innovation</span>
           <h2 className="heading-lg">
             Photo <span className="text-gradient">Gallery</span>
           </h2>
@@ -47,10 +47,10 @@ export default function Gallery() {
 
         {loading ? (
           <div style={{ display: "flex", justifyContent: "center", padding: "4rem 0" }}>
-            <Loader2 className="animate-spin" size={48} color="var(--secondary)" />
+            <Loader2 className="animate-spin" size={48} color="var(--primary)" />
           </div>
         ) : items.length === 0 ? (
-          <div style={{ textAlign: "center", color: "rgba(255,255,255,0.5)" }}>
+          <div style={{ textAlign: "center", color: "#94a3b8", padding: "2rem 0" }}>
             No gallery items added yet.
           </div>
         ) : (

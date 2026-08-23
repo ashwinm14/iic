@@ -42,18 +42,18 @@ export default function Team() {
     <section id="team" className="section">
       <div className="container">
         <div className={styles.header}>
-          <span className={styles.subtitle}>Meet The Leaders</span>
+          <span className={styles.subtitle}>Council Leadership</span>
           <h2 className="heading-lg">
-            Our <span className="text-gradient">Team</span>
+            Our <span className="text-gradient">Core Committee</span>
           </h2>
         </div>
 
         {loading ? (
           <div style={{ display: "flex", justifyContent: "center", padding: "4rem 0" }}>
-            <Loader2 className="animate-spin" size={48} color="var(--primary)" />
+            <Loader2 className="animate-spin" size={48} color="var(--secondary)" />
           </div>
         ) : team.length === 0 ? (
-          <div style={{ textAlign: "center", color: "rgba(255,255,255,0.5)" }}>
+          <div style={{ textAlign: "center", color: "rgba(241,245,249,0.5)", padding: "2rem 0" }}>
             No team members added yet.
           </div>
         ) : (

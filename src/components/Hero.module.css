@@ -1,42 +1,53 @@
 .hero {
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   position: relative;
   overflow: hidden;
-  padding-top: 5rem;
+  padding-top: 6.5rem;
+  padding-bottom: 3.5rem;
 }
 
 .heroContent {
-  max-width: 800px;
+  max-width: 860px;
   position: relative;
   z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  gap: 0.6rem;
+  padding: 0.45rem 1.15rem;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
   border-radius: 9999px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  margin-bottom: 2rem;
+  font-size: 0.825rem;
+  font-weight: 600;
+  margin-bottom: 1.75rem;
+  color: #1e293b;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.badgeDot {
   color: var(--accent);
+  opacity: 0.8;
 }
 
 .title {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .description {
-  margin-bottom: 2.5rem;
-  max-width: 600px;
+  margin-bottom: 2.25rem;
+  max-width: 650px;
   margin-inline: auto;
+  line-height: 1.7;
 }
 
 .actions {
@@ -44,13 +55,65 @@
   gap: 1rem;
   justify-content: center;
   align-items: center;
+  margin-bottom: 3.5rem;
+}
+
+.statsGrid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.75rem;
+  padding: 1.25rem 2.75rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statNumber {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1.2;
+}
+
+.statLabel {
+  font-size: 0.775rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.2rem;
+}
+
+.statDivider {
+  width: 1px;
+  height: 34px;
+  background: #e2e8f0;
 }
 
 @media (max-width: 640px) {
   .actions {
     flex-direction: column;
-  }
-  .actions button {
     width: 100%;
+  }
+  .actions a {
+    width: 100%;
+  }
+  .statsGrid {
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    width: 100%;
+  }
+  .statDivider {
+    width: 60px;
+    height: 1px;
   }
 }
