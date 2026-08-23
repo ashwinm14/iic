@@ -1,4 +1,5 @@
-import { ArrowRight, Sparkles } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Sparkles, Award } from "lucide-react";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
@@ -6,26 +7,46 @@ export default function Hero() {
     <section className={styles.hero}>
       <div className={`container ${styles.heroContent}`}>
         <div className={`${styles.badge} animate-fade-in`}>
-          <Sparkles size={16} />
-          <span>Innovate. Create. Inspire.</span>
+          <Sparkles size={16} color="var(--secondary)" />
+          <span>Ministry of Education Initiative</span>
+          <span className={styles.badgeDot}>•</span>
+          <span style={{ color: "var(--secondary-light)" }}>IIC Network</span>
         </div>
         
         <h1 className={`heading-xl ${styles.title} animate-fade-in delay-100`}>
-          Institution <span className="text-gradient">Innovation</span> Council
+          Institution&apos;s <span className="text-gradient">Innovation</span> Council
         </h1>
         
         <p className={`text-lg ${styles.description} animate-fade-in delay-200`}>
           Empowering the next generation of student entrepreneurs and innovators. 
-          Join us to transform your creative ideas into successful ventures.
+          Join us to transform your breakthrough ideas into sustainable, real-world ventures.
         </p>
         
         <div className={`${styles.actions} animate-fade-in delay-300`}>
-          <button className="btn btn-gradient">
-            Explore Initiatives <ArrowRight size={18} className="ml-2" />
-          </button>
-          <button className="btn btn-outline">
-            View Upcoming Events
-          </button>
+          <Link href="#events" className="btn btn-gradient">
+            Explore Initiatives <ArrowRight size={18} style={{ marginLeft: '0.5rem' }} />
+          </Link>
+          <Link href="#about" className="btn btn-outline">
+            <Award size={18} style={{ marginRight: '0.5rem', color: 'var(--secondary)' }} />
+            Discover Our Mission
+          </Link>
+        </div>
+
+        <div className={`${styles.statsGrid} animate-fade-in delay-300`}>
+          <div className={styles.statItem}>
+            <span className={styles.statNumber}>50+</span>
+            <span className={styles.statLabel}>Innovation Events</span>
+          </div>
+          <div className={styles.statDivider} />
+          <div className={styles.statItem}>
+            <span className={styles.statNumber}>25+</span>
+            <span className={styles.statLabel}>Startups Incubated</span>
+          </div>
+          <div className={styles.statDivider} />
+          <div className={styles.statItem}>
+            <span className={styles.statNumber}>1000+</span>
+            <span className={styles.statLabel}>Active Innovators</span>
+          </div>
         </div>
       </div>
     </section>

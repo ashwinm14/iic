@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Lightbulb, Globe, MessageSquare, Share2, Mail } from "lucide-react";
+import Image from "next/image";
+import { Globe, MessageSquare, Share2, Mail, ExternalLink, ShieldCheck } from "lucide-react";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
@@ -7,68 +8,70 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={`container ${styles.grid}`}>
         <div className={styles.brand}>
-          <div className={styles.logo}>
-            <Lightbulb color="var(--accent)" size={28} />
-            <span>IIC<span className="text-gradient">.</span></span>
+          <div className={styles.logoWrapper}>
+            <Image
+              src="/iic-logo.png"
+              alt="Institution's Innovation Council Logo"
+              width={160}
+              height={52}
+              className={styles.logoImage}
+            />
           </div>
           <p className={styles.description}>
-            Institution Innovation Council. Empowering minds to think critically, innovate fearlessly, and build for the future.
+            Established under the Ministry of Education (MoE), Govt. of India, to cultivate systemic innovation, promote startup incubation, and foster entrepreneurial mindset.
           </p>
           <div className={styles.socials}>
-            <a href="#" className={styles.socialIcon}><Globe size={18} /></a>
-            <a href="#" className={styles.socialIcon}><Share2 size={18} /></a>
-            <a href="#" className={styles.socialIcon}><MessageSquare size={18} /></a>
-            <a href="#" className={styles.socialIcon}><Mail size={18} /></a>
+            <a href="#" className={styles.socialIcon} aria-label="Website"><Globe size={18} /></a>
+            <a href="#" className={styles.socialIcon} aria-label="Social Share"><Share2 size={18} /></a>
+            <a href="#" className={styles.socialIcon} aria-label="Discussions"><MessageSquare size={18} /></a>
+            <a href="#" className={styles.socialIcon} aria-label="Email"><Mail size={18} /></a>
           </div>
         </div>
 
         <div>
-          <h4 className={styles.title}>Quick Links</h4>
+          <h4 className={styles.title}>Quick Navigation</h4>
           <ul className={styles.links}>
-            <li><Link href="#about" className={styles.link}>About Us</Link></li>
+            <li><Link href="#about" className={styles.link}>About IIC</Link></li>
             <li><Link href="#events" className={styles.link}>Events & Hackathons</Link></li>
-            <li><Link href="#team" className={styles.link}>Our Team</Link></li>
-            <li><Link href="#" className={styles.link}>Contact</Link></li>
+            <li><Link href="#team" className={styles.link}>Core Committee</Link></li>
+            <li><Link href="#gallery" className={styles.link}>Campus Gallery</Link></li>
           </ul>
         </div>
 
         <div>
-          <h4 className={styles.title}>Resources</h4>
+          <h4 className={styles.title}>MoE Resources</h4>
           <ul className={styles.links}>
-            <li><Link href="#" className={styles.link}>Incubation Policy</Link></li>
-            <li><Link href="#" className={styles.link}>Startup Guide</Link></li>
-            <li><Link href="#" className={styles.link}>Mentorship Program</Link></li>
-            <li><Link href="#" className={styles.link}>FAQs</Link></li>
+            <li><a href="https://mic.gov.in" target="_blank" rel="noopener noreferrer" className={styles.link}>MoE Innovation Cell <ExternalLink size={12} style={{ display: 'inline', marginLeft: '4px' }} /></a></li>
+            <li><Link href="#" className={styles.link}>National Innovation Policy (NISP)</Link></li>
+            <li><Link href="#" className={styles.link}>Incubation & Pre-Incubation</Link></li>
+            <li><Link href="#" className={styles.link}>IPR & Patent Support</Link></li>
           </ul>
         </div>
 
         <div>
-          <h4 className={styles.title}>Newsletter</h4>
-          <p className={styles.description}>Subscribe to get updates on upcoming events and opportunities.</p>
-          <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1rem' }}>
+          <h4 className={styles.title}>Stay Connected</h4>
+          <p className={styles.description}>Subscribe for alerts on upcoming hackathons, grants, and innovation challenges.</p>
+          <div className={styles.newsletterForm}>
             <input 
               type="email" 
-              placeholder="Your email" 
-              style={{ 
-                background: 'rgba(255,255,255,0.05)', 
-                border: '1px solid rgba(255,255,255,0.1)',
-                padding: '0.5rem 1rem',
-                borderRadius: '99px',
-                color: 'white',
-                outline: 'none',
-                width: '100%'
-              }} 
+              placeholder="Enter your student/official email" 
+              className={styles.newsletterInput}
             />
-            <button className="btn btn-gradient" style={{ padding: '0.5rem 1rem' }}>Join</button>
+            <button className="btn btn-gradient" style={{ padding: '0.6rem 1.25rem', whiteSpace: 'nowrap' }}>Subscribe</button>
+          </div>
+          <div className={styles.affiliationBadge}>
+            <ShieldCheck size={16} color="var(--secondary)" />
+            <span>Ministry of Education Verified Council</span>
           </div>
         </div>
       </div>
 
       <div className={`container ${styles.bottom}`}>
-        <p>&copy; {new Date().getFullYear()} Institution Innovation Council. All rights reserved.</p>
-        <div style={{ display: 'flex', gap: '1rem' }}>
-          <Link href="#" className={styles.link}>Privacy Policy</Link>
-          <Link href="#" className={styles.link}>Terms of Service</Link>
+        <p>&copy; {new Date().getFullYear()} Institution&apos;s Innovation Council. All rights reserved.</p>
+        <div style={{ display: 'flex', gap: '1.5rem' }}>
+          <Link href="#" className={styles.bottomLink}>Privacy Policy</Link>
+          <Link href="#" className={styles.bottomLink}>Terms of Service</Link>
+          <Link href="#" className={styles.bottomLink}>MoE Guidelines</Link>
         </div>
       </div>
     </footer>

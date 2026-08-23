@@ -5,9 +5,22 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Institution Innovation Council | IIC",
-  description: "Fostering the culture of innovation and entrepreneurship among students. Join the Institution Innovation Council.",
-  keywords: ["IIC", "Institution Innovation Council", "Innovation", "Entrepreneurship", "Students", "Startup"],
+  title: "Institution's Innovation Council (IIC) | Ministry of Education Initiative",
+  description: "Fostering the culture of innovation, startup incubation, and entrepreneurship among students under the Ministry of Education Innovation Cell.",
+  keywords: [
+    "IIC",
+    "Institution's Innovation Council",
+    "Ministry of Education",
+    "Innovation Cell",
+    "MoE",
+    "Startups",
+    "Incubation",
+    "Hackathon",
+    "Entrepreneurship"
+  ],
+  icons: {
+    icon: "/iic-logo.png",
+  },
 };
 
 export default function RootLayout({
