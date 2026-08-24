@@ -2,20 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
+import { IIC_TEAM_FALLBACK, IICTeamMember } from "@/lib/knowledgeBase";
 import styles from "./Team.module.css";
-import { Loader2 } from "lucide-react";
-
-interface TeamMember {
-  id: string;
-  name: string;
-  role: string;
-  description?: string;
-  image_url?: string;
-}
+import { Loader2, Sparkles, UserCheck } from "lucide-react";
 
 export default function Team() {
-  const [team, setTeam] = useState<TeamMember[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [team, setTeam] = useState<IICTeamMember[]>(IIC_TEAM_FALLBACK);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchTeam = async () => {
@@ -26,12 +19,11 @@ export default function Team() {
           .order("priority", { ascending: true })
           .order("created_at", { ascending: true });
 
-        if (error) throw error;
-        setTeam(data || []);
+        if (!error && data && data.length > 0) {
+          setTeam(data);
+        }
       } catch (error) {
-        console.error("Error fetching team:", error);
-      } finally {
-        setLoading(false);
+        console.error("Error fetching team from Supabase, using fallback:", error);
       }
     };
 
@@ -42,7 +34,10 @@ export default function Team() {
     <section id="team" className="section">
       <div className="container">
         <div className={styles.header}>
-          <span className={styles.subtitle}>Council Leadership</span>
+          <span className={styles.subtitle}>
+            <Sparkles size={14} style={{ display: "inline", marginRight: "6px" }} />
+            IIC Committee &apos;26–&apos;27
+          </span>
           <h2 className="heading-lg">
             Our <span className="text-gradient">Core Committee</span>
           </h2>
@@ -60,18 +55,13 @@ export default function Team() {
           <div className={styles.grid}>
             {team.map((member) => (
               <div key={member.id} className={`glass-card ${styles.memberCard}`}>
-                <div className={styles.imageWrapper}>
-                  {member.image_url ? (
-                    <img src={member.image_url} alt={member.name} className={styles.image} />
-                  ) : (
-                    <div className={styles.placeholder}>👤</div>
-                  )}
+                <div className={styles.iconCircle}>
+                  <UserCheck size={24} className={styles.userIcon} />
                 </div>
                 <h3 className={styles.name}>{member.name}</h3>
-                <p className={styles.role}>{member.role}</p>
-                {member.description && (
-                  <p className={styles.description}>{member.description}</p>
-                )}
+                <div className={styles.roleBadge}>
+                  <span className={styles.role}>{member.role}</span>
+                </div>
               </div>
             ))}
           </div>
