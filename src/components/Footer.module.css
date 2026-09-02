@@ -1,16 +1,16 @@
 .footer {
   border-top: 1px solid #e2e8f0;
-  padding: 4.5rem 0 2.5rem;
+  padding: 4rem 0 2rem;
   background: #ffffff;
-  margin-top: 4rem;
+  margin-top: 3rem;
   position: relative;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 1.8fr 1fr 1.1fr 1.4fr;
-  gap: 3rem;
-  margin-bottom: 3.5rem;
+  grid-template-columns: 1.6fr 1fr 1.1fr 1.3fr;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
 }
 
 .brand {
@@ -20,11 +20,11 @@
 .logoWrapper {
   display: inline-flex;
   align-items: center;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.15rem;
 }
 
 .logoImage {
-  height: 40px;
+  height: 38px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -32,19 +32,20 @@
 
 .description {
   color: #64748b;
-  font-size: 0.9rem;
-  margin-bottom: 1.5rem;
+  font-size: 0.88rem;
+  margin-bottom: 1.25rem;
   line-height: 1.6;
 }
 
 .socials {
   display: flex;
-  gap: 0.75rem;
+  gap: 0.65rem;
+  flex-wrap: wrap;
 }
 
 .socialIcon {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   background: #f8fafc;
   border: 1px solid #e2e8f0;
@@ -65,8 +66,8 @@
 
 .title {
   font-weight: 700;
-  font-size: 1rem;
-  margin-bottom: 1.25rem;
+  font-size: 0.975rem;
+  margin-bottom: 1.15rem;
   color: #0f172a;
   letter-spacing: -0.01em;
 }
@@ -75,14 +76,14 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.65rem;
 }
 
 .link {
   color: #64748b;
   text-decoration: none;
   transition: all 0.2s ease;
-  font-size: 0.925rem;
+  font-size: 0.9rem;
 }
 
 .link:hover {
@@ -100,12 +101,13 @@
 .newsletterInput {
   background: #f8fafc;
   border: 1px solid #cbd5e1;
-  padding: 0.6rem 1rem;
-  border-radius: 99px;
+  padding: 0.6rem 0.9rem;
+  border-radius: 999px;
   color: #0f172a;
   outline: none;
   font-size: 0.875rem;
   width: 100%;
+  min-width: 0;
   transition: all 0.2s ease;
 }
 
@@ -119,19 +121,28 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 500;
   color: #475569;
 }
 
 .bottom {
   border-top: 1px solid #e2e8f0;
-  padding-top: 2rem;
+  padding-top: 1.75rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: #94a3b8;
-  font-size: 0.85rem;
+  font-size: 0.825rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.bottomLinks {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .bottomLink {
@@ -144,22 +155,55 @@
   color: var(--primary);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .grid {
     grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
+    gap: 2.25rem;
+  }
+  .brand {
+    max-width: 100%;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 580px) {
+  .footer {
+    padding: 3rem 0 1.5rem;
+    margin-top: 2rem;
+  }
+
   .grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.75rem;
+    margin-bottom: 2rem;
   }
-  
+
+  .brand {
+    max-width: 100%;
+  }
+
+  .newsletterForm {
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .newsletterInput {
+    min-height: 44px;
+  }
+
+  .newsletterForm button {
+    width: 100%;
+    min-height: 44px;
+  }
+
   .bottom {
     flex-direction: column;
-    gap: 1rem;
     text-align: center;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .bottomLinks {
+    gap: 1rem;
+    justify-content: center;
   }
 }

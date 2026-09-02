@@ -23,10 +23,11 @@ export default function Gallery() {
           .order("priority", { ascending: true })
           .order("created_at", { ascending: true });
 
-        if (error) throw error;
-        setItems(data || []);
-      } catch (error) {
-        console.error("Error fetching gallery:", error);
+        if (!error && data && data.length > 0) {
+          setItems(data);
+        }
+      } catch {
+        // Fallback gracefully
       } finally {
         setLoading(false);
       }

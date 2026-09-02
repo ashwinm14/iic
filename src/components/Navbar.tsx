@@ -19,48 +19,89 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scroll and listen for escape key when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === "Escape") setMobileMenuOpen(false);
+      };
+      window.addEventListener("keydown", handleKeyDown);
+      return () => {
+        document.body.style.overflow = "";
+        window.removeEventListener("keydown", handleKeyDown);
+      };
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [mobileMenuOpen]);
+
   return (
-    <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
-      <div className={`container ${styles.navContainer}`}>
-        <Link href="/" className={styles.logo}>
-          <div className={styles.logoWrapper}>
-            <Image
-              src="/iic-logo.png"
-              alt="Institution's Innovation Council Logo"
-              width={140}
-              height={46}
-              priority
-              className={styles.logoImage}
-            />
+    <>
+      <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
+        <div className={`container ${styles.navContainer}`}>
+          <Link href="/" className={styles.logo} onClick={() => setMobileMenuOpen(false)}>
+            <div className={styles.logoWrapper}>
+              <Image
+                src="/iic-logo.png"
+                alt="Institution's Innovation Council Logo"
+                width={140}
+                height={46}
+                priority
+                className={styles.logoImage}
+              />
+            </div>
+          </Link>
+
+          <div className={styles.navLinks}>
+            <Link href="#about" className={styles.navLink}>About</Link>
+            <Link href="#events" className={styles.navLink}>Events</Link>
+            <Link href="#team" className={styles.navLink}>Team</Link>
+            <Link href="#gallery" className={styles.navLink}>Gallery</Link>
+            <a href="#events" className="btn btn-gradient">Join Us</a>
           </div>
-        </Link>
 
-        <div className={styles.navLinks}>
-          <Link href="#about" className={styles.navLink}>About</Link>
-          <Link href="#events" className={styles.navLink}>Events</Link>
-          <Link href="#team" className={styles.navLink}>Team</Link>
-          <Link href="#gallery" className={styles.navLink}>Gallery</Link>
-          <a href="#events" className="btn btn-gradient">Join Us</a>
+          <button 
+            className={styles.mobileMenuBtn}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={mobileMenuOpen}
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
 
-        <button 
-          className={styles.mobileMenuBtn}
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
+        {mobileMenuOpen && (
+          <div className={styles.mobileMenu}>
+            <div className={styles.mobileMenuLinks}>
+              <Link href="#about" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>
+                About
+              </Link>
+              <Link href="#events" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>
+                Events
+              </Link>
+              <Link href="#team" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>
+                Team
+              </Link>
+              <Link href="#gallery" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>
+                Gallery
+              </Link>
+              <a href="#events" className={`btn btn-gradient ${styles.mobileCtaBtn}`} onClick={() => setMobileMenuOpen(false)}>
+                Join Us
+              </a>
+            </div>
+          </div>
+        )}
+      </nav>
 
+      {/* Backdrop overlay for mobile menu */}
       {mobileMenuOpen && (
-        <div className={styles.mobileMenu}>
-          <Link href="#about" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>About</Link>
-          <Link href="#events" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>Events</Link>
-          <Link href="#team" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>Team</Link>
-          <Link href="#gallery" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>Gallery</Link>
-          <a href="#events" className="btn btn-gradient" onClick={() => setMobileMenuOpen(false)}>Join Us</a>
-        </div>
+        <div 
+          className={styles.mobileBackdrop} 
+          onClick={() => setMobileMenuOpen(false)}
+          aria-hidden="true"
+        />
       )}
-    </nav>
+    </>
   );
 }

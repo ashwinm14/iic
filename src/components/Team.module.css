@@ -10,17 +10,20 @@
   margin-bottom: 0.75rem;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   background: rgba(37, 99, 235, 0.08);
   padding: 0.35rem 0.85rem;
   border-radius: 9999px;
   border: 1px solid rgba(37, 99, 235, 0.18);
+  max-width: 100%;
 }
+
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
   gap: 1.5rem;
   justify-content: center;
   max-width: 1200px;
@@ -48,14 +51,14 @@
 }
 
 .iconCircle {
-  width: 52px;
-  height: 52px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(249, 115, 22, 0.1));
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.15rem;
   border: 1px solid rgba(37, 99, 235, 0.2);
   transition: all 0.3s ease;
 }
@@ -76,33 +79,82 @@
 .name {
   font-size: 1.15rem;
   font-weight: 700;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
   color: #0f172a;
   line-height: 1.3;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .roleBadge {
   display: inline-flex;
+  max-width: 100%;
 }
 
 .role {
   color: var(--secondary);
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   font-weight: 600;
   background: rgba(37, 99, 235, 0.08);
-  padding: 0.35rem 0.85rem;
+  padding: 0.35rem 0.8rem;
   border-radius: 9999px;
   border: 1px solid rgba(37, 99, 235, 0.15);
   display: inline-block;
+  line-height: 1.3;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
 }
 
 @media (max-width: 768px) {
+  .header {
+    margin-bottom: 2.25rem;
+  }
   .grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
     gap: 1rem;
   }
-
   .memberCard {
     padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  .memberCard {
+    padding: 1.25rem 0.65rem;
+  }
+  .iconCircle {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 0.75rem;
+  }
+  .name {
+    font-size: 0.95rem;
+  }
+  .role {
+    font-size: 0.74rem;
+    padding: 0.25rem 0.55rem;
+  }
+}
+
+@media (max-width: 340px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  .memberCard {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 0.85rem;
+    padding: 0.9rem;
+  }
+  .iconCircle {
+    margin-bottom: 0;
+    flex-shrink: 0;
   }
 }

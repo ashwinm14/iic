@@ -5,6 +5,13 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#1e3a8a"
+};
+
 export const metadata: Metadata = {
   title: "Institution's Innovation Council (IIC) | Ministry of Education Initiative",
   description: "Fostering the culture of innovation, startup incubation, and entrepreneurship among students under the Ministry of Education Innovation Cell.",
@@ -32,9 +39,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="blob blob-1"></div>
-        <div className="blob blob-2"></div>
-        <div className="blob blob-3"></div>
+        <div className="blob-wrapper" aria-hidden="true">
+          <div className="blob blob-1"></div>
+          <div className="blob blob-2"></div>
+          <div className="blob blob-3"></div>
+        </div>
         {children}
         <Chatbot />
       </body>
