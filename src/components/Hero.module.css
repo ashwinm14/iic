@@ -1,23 +1,28 @@
 .hero {
-  min-height: calc(90vh - 60px);
+  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   position: relative;
   overflow: hidden;
-  padding-top: 6.5rem;
-  padding-bottom: 3.5rem;
+  padding-top: calc(70px + 1.5rem);
+  padding-bottom: 2.5rem;
+  box-sizing: border-box;
 }
 
 .heroContent {
-  max-width: 860px;
+  max-width: 1080px;
   width: 100%;
+  margin: 0 auto;
   position: relative;
   z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .badge {
@@ -32,7 +37,7 @@
   border-radius: 9999px;
   font-size: 0.8rem;
   font-weight: 600;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   color: #1e293b;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
   max-width: 100%;
@@ -44,19 +49,25 @@
 }
 
 .title {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.15rem;
   width: 100%;
-  font-size: clamp(1.9rem, 5.5vw, 4.25rem);
-  line-height: 1.15;
-  letter-spacing: -0.03em;
+  max-width: 1080px;
+  text-align: center;
+  text-wrap: balance;
+  margin-inline: auto;
+  font-size: clamp(2.1rem, 4.6vw, 3.85rem);
+  line-height: 1.18;
+  letter-spacing: -0.025em;
   overflow-wrap: break-word;
   word-break: break-word;
 }
 
 .description {
-  margin-bottom: 2rem;
-  max-width: 650px;
+  margin-bottom: 1.85rem;
+  max-width: 680px;
   margin-inline: auto;
+  text-align: center;
+  text-wrap: balance;
   line-height: 1.7;
 }
 
@@ -65,61 +76,20 @@
   gap: 0.85rem;
   justify-content: center;
   align-items: center;
-  margin-bottom: 3rem;
   width: 100%;
   max-width: 500px;
-}
-
-.statsGrid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2.5rem;
-  padding: 1.25rem 2.5rem;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 1.25rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  max-width: 100%;
-}
-
-.statItem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.statNumber {
-  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
-  font-weight: 800;
-  color: var(--primary);
-  line-height: 1.2;
-}
-
-.statLabel {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-top: 0.2rem;
-  text-align: center;
-}
-
-.statDivider {
-  width: 1px;
-  height: 32px;
-  background: #e2e8f0;
+  margin: 0 auto;
 }
 
 @media (max-width: 768px) {
   .hero {
-    padding-top: 5.5rem;
-    padding-bottom: 2.5rem;
-    min-height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding-top: calc(65px + 1.25rem);
+    padding-bottom: 2rem;
   }
   .title {
-    font-size: clamp(1.75rem, 6.5vw, 2.75rem);
+    font-size: clamp(1.85rem, 6.5vw, 2.75rem);
     line-height: 1.2;
     margin-bottom: 1rem;
   }
@@ -127,13 +97,6 @@
     font-size: 0.98rem;
     line-height: 1.6;
     margin-bottom: 1.75rem;
-  }
-  .statsGrid {
-    gap: 1.5rem;
-    padding: 1rem 1.5rem;
-  }
-  .actions {
-    margin-bottom: 2.25rem;
   }
 }
 
@@ -153,64 +116,20 @@
     display: inline-flex;
     justify-content: center;
   }
-  .statsGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
-    padding: 1rem 0.5rem;
-    width: 100%;
-  }
-  .statDivider {
-    display: none;
-  }
-  .statNumber {
-    font-size: 1.3rem;
-  }
-  .statLabel {
-    font-size: 0.68rem;
-    letter-spacing: 0.02em;
-  }
 }
 
 @media (max-width: 440px) {
   .hero {
-    padding-top: 5.25rem;
-    padding-bottom: 2rem;
+    padding-top: calc(65px + 1rem);
+    padding-bottom: 1.5rem;
   }
   .title {
-    font-size: clamp(1.6rem, 7.5vw, 2.15rem);
+    font-size: clamp(1.65rem, 7.5vw, 2.2rem);
     line-height: 1.22;
   }
   .description {
     font-size: 0.925rem;
     padding: 0 0.25rem;
     margin-bottom: 1.5rem;
-  }
-  .statsGrid {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    padding: 0.4rem 1.15rem;
-    border-radius: 1rem;
-  }
-  .statItem {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 0.7rem 0;
-    border-bottom: 1px solid #f1f5f9;
-  }
-  .statItem:last-child {
-    border-bottom: none;
-  }
-  .statNumber {
-    font-size: 1.35rem;
-  }
-  .statLabel {
-    margin-top: 0;
-    text-align: right;
-    font-size: 0.76rem;
-    letter-spacing: 0.03em;
   }
 }

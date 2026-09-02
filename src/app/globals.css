@@ -85,6 +85,7 @@ button {
   color: #0f172a;
   overflow-wrap: break-word;
   word-wrap: break-word;
+  text-wrap: balance;
 }
 
 .heading-lg {

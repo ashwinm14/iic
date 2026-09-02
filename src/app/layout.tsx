@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Preloader from "@/components/Preloader";
 import Chatbot from "@/components/Chatbot/Chatbot";
 import "./globals.css";
 
@@ -39,6 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <Preloader />
         <div className="blob-wrapper" aria-hidden="true">
           <div className="blob blob-1"></div>
           <div className="blob blob-2"></div>

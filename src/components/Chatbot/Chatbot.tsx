@@ -28,6 +28,22 @@ import { IICEvent } from "@/lib/knowledgeBase";
 import EventCard from "./EventCard";
 import styles from "./Chatbot.module.css";
 
+function MessengerIcon({ size = 20, className, color = "currentColor" }: { size?: number; className?: string; color?: string }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill={color}
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M12 2C6.477 2 2 6.145 2 11.258c0 2.91 1.455 5.517 3.736 7.202V22l3.39-1.86c.91.252 1.874.388 2.874.388 5.523 0 10-4.145 10-9.27S17.523 2 12 2zm1.066 12.443l-2.584-2.756-5.044 2.756 5.547-5.89 2.65 2.756 4.978-2.756-5.547 5.89z" />
+    </svg>
+  );
+}
+
 interface ChatAction {
   label: string;
   url: string;
@@ -274,7 +290,7 @@ export default function Chatbot() {
           id="iic-chatbot-launcher"
         >
           <div className={styles.launcherIconWrapper}>
-            <Sparkles size={18} color="#ffffff" />
+            <MessengerIcon size={20} color="#ffffff" />
             <span className={styles.livePulseDot} />
           </div>
           <div className={styles.launcherLabel}>
@@ -358,7 +374,7 @@ export default function Chatbot() {
                   <div className={styles.welcomeCard}>
                     <div className={styles.welcomeHeader}>
                       <div className={styles.welcomeAvatar}>
-                        <Bot size={18} />
+                        <MessengerIcon size={18} color="#ffffff" />
                       </div>
                       <div>
                         <div className={styles.welcomeGreeting}>
