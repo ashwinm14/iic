@@ -61,7 +61,7 @@ export default function Navbar() {
             <a href="#events" className="btn btn-gradient">Join Us</a>
           </div>
 
-          <button 
+          <button
             className={styles.mobileMenuBtn}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
@@ -86,7 +86,7 @@ export default function Navbar() {
               <Link href="#gallery" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>
                 Gallery
               </Link>
-              <a href="#events" className={`btn btn-gradient ${styles.mobileCtaBtn}`} onClick={() => setMobileMenuOpen(false)}>
+              <a href="https://iedc.cev.ac.in/" className={`btn btn-gradient ${styles.mobileCtaBtn}`} onClick={() => setMobileMenuOpen(false)}>
                 Join Us
               </a>
             </div>
@@ -96,8 +96,8 @@ export default function Navbar() {
 
       {/* Backdrop overlay for mobile menu */}
       {mobileMenuOpen && (
-        <div 
-          className={styles.mobileBackdrop} 
+        <div
+          className={styles.mobileBackdrop}
           onClick={() => setMobileMenuOpen(false)}
           aria-hidden="true"
         />

@@ -1,160 +1,253 @@
+.sectionWrapper {
+  overflow: hidden; 
+  padding-bottom: 5rem;
+}
+
 .header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
 }
 
-.subtitle {
-  color: var(--secondary);
-  font-weight: 700;
-  font-size: 0.825rem;
-  margin-bottom: 0.75rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  background: rgba(37, 99, 235, 0.08);
-  padding: 0.35rem 0.85rem;
-  border-radius: 9999px;
-  border: 1px solid rgba(37, 99, 235, 0.18);
-  max-width: 100%;
-}
-
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
-  gap: 1.5rem;
-  justify-content: center;
+.carouselContainer {
+  position: relative;
+  width: 100%;
   max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carouselTrack {
+  position: relative;
+  width: 100%;
+  max-width: 320px; /* Reduced from 400px */
+  height: 420px; /* Reduced from 520px */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
   margin: 0 auto;
 }
 
 .memberCard {
-  text-align: center;
-  padding: 2rem 1.25rem;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 1.25rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px; /* Slightly softer corners */
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  background: var(--card-bg);
+  cursor: pointer;
+  transform-origin: center center;
+  user-select: none;
+}
+
+.activeCard {
+  box-shadow: 0 20px 45px rgba(37, 99, 235, 0.2);
+  cursor: default;
+}
+
+.imageBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.memberImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.activeCard:hover .memberImage {
+  transform: scale(1.05);
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top right, var(--iic-blue-light) 0%, var(--iic-blue) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.imagePlaceholder::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.15) 2px, transparent 2px);
+  background-size: 24px 24px;
+}
+
+.placeholderIcon {
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 0.4s ease;
+  z-index: 2;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 65%;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.4) 60%, transparent 100%);
+  z-index: 2;
+}
+
+.infoBox {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  padding: 2rem 1.5rem 1.5rem; /* Reduced padding */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-}
-
-.memberCard:hover {
-  transform: translateY(-4px);
-  border-color: var(--secondary);
-  box-shadow: 0 14px 28px rgba(37, 99, 235, 0.1);
-}
-
-.iconCircle {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(249, 115, 22, 0.1));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.15rem;
-  border: 1px solid rgba(37, 99, 235, 0.2);
-  transition: all 0.3s ease;
-}
-
-.memberCard:hover .iconCircle {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-}
-
-.userIcon {
-  color: var(--secondary);
-  transition: color 0.3s ease;
-}
-
-.memberCard:hover .userIcon {
-  color: #ffffff;
+  text-align: center;
 }
 
 .name {
-  font-size: 1.15rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: #0f172a;
-  line-height: 1.3;
-  overflow-wrap: break-word;
-  word-break: break-word;
+  color: #ffffff;
+  font-size: 1.4rem; /* Reduced from 1.6rem */
+  font-weight: 800;
+  margin-bottom: 0.6rem;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.roleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .roleBadge {
-  display: inline-flex;
-  max-width: 100%;
+  color: #ffffff;
+  font-size: 0.85rem; /* Reduced from 0.9rem */
+  font-weight: 600;
+  background: rgba(37, 99, 235, 0.8);
+  padding: 0.35rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-.role {
-  color: var(--secondary);
-  font-size: 0.84rem;
-  font-weight: 600;
-  background: rgba(37, 99, 235, 0.08);
-  padding: 0.35rem 0.8rem;
-  border-radius: 9999px;
-  border: 1px solid rgba(37, 99, 235, 0.15);
-  display: inline-block;
-  line-height: 1.3;
-  overflow-wrap: break-word;
-  word-break: break-word;
-  max-width: 100%;
+.activeIndicator {
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--primary-vibrant), transparent);
+  margin-top: 1.25rem;
+  border-radius: 4px;
+  transition: width 0.6s ease 0.2s;
+  opacity: 0;
+}
+
+.activeCard .activeIndicator {
+  width: 60%;
+  opacity: 1;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.75rem;
+  margin-top: 3rem;
+  z-index: 10;
+}
+
+.controlBtn {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: var(--primary);
+  width: 50px; /* Reduced from 56px */
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.controlBtn:hover {
+  background: var(--primary);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+}
+
+.indicators {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dot {
+  width: 8px; /* Reduced from 10px */
+  height: 8px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.activeDot {
+  background: var(--primary-vibrant);
+  transform: scale(1.4);
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
 }
 
 @media (max-width: 768px) {
-  .header {
-    margin-bottom: 2.25rem;
-  }
-  .grid {
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
-    gap: 1rem;
-  }
-  .memberCard {
-    padding: 1.5rem 1rem;
-  }
-}
-
-@media (max-width: 540px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-  }
-  .memberCard {
-    padding: 1.25rem 0.65rem;
-  }
-  .iconCircle {
-    width: 42px;
-    height: 42px;
-    margin-bottom: 0.75rem;
+  .carouselTrack {
+    max-width: 280px;
+    height: 380px;
   }
   .name {
-    font-size: 0.95rem;
+    font-size: 1.25rem;
   }
-  .role {
-    font-size: 0.74rem;
-    padding: 0.25rem 0.55rem;
+  .controls {
+    margin-top: 2.25rem;
+    gap: 1.25rem;
+  }
+  .controlBtn {
+    width: 44px;
+    height: 44px;
   }
 }
 
-@media (max-width: 340px) {
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
+@media (max-width: 480px) {
+  .carouselTrack {
+    max-width: 250px;
+    height: 340px;
   }
-  .memberCard {
-    flex-direction: row;
-    align-items: center;
-    text-align: left;
-    gap: 0.85rem;
-    padding: 0.9rem;
+  .infoBox {
+    padding: 1.5rem 1rem 1.25rem;
   }
-  .iconCircle {
-    margin-bottom: 0;
-    flex-shrink: 0;
+  .name {
+    font-size: 1.15rem;
+  }
+  .roleBadge {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.8rem;
   }
 }
+
+

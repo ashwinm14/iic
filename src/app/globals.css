@@ -3,7 +3,7 @@
   --background-alt: #f8fafc;
   --foreground: #0f172a;
   --foreground-muted: #64748b;
-  
+
   /* IIC Logo Brand Palette */
   --iic-blue: #1e3a8a;
   --iic-blue-vibrant: #2563eb;
@@ -23,7 +23,7 @@
   --secondary-hover: #b45309;
   --accent: #d32027;
   --accent-hover: #b91c1c;
-  
+
   --card-bg: #ffffff;
   --card-border: #e2e8f0;
   --card-border-hover: #cbd5e1;
@@ -169,7 +169,10 @@ button {
 .btn-gradient::before {
   content: "";
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   border-radius: 9999px;
   background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%);
   z-index: -1;
@@ -241,9 +244,11 @@ button {
   .section {
     padding: 3.75rem 0;
   }
+
   .container {
     padding: 0 1.25rem;
   }
+
   .glass-card {
     padding: 1.5rem 1.25rem;
   }
@@ -253,12 +258,15 @@ button {
   .section {
     padding: 3rem 0;
   }
+
   .container {
     padding: 0 1rem;
   }
+
   .glass-card {
     padding: 1.25rem 1rem;
   }
+
   .btn {
     padding: 0.75rem 1.25rem;
     font-size: 0.925rem;
@@ -267,6 +275,7 @@ button {
 
 /* Prevent auto-zoom on mobile inputs */
 @media (max-width: 768px) {
+
   input,
   textarea,
   select {
@@ -276,8 +285,15 @@ button {
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-fade-in {
@@ -285,9 +301,17 @@ button {
   opacity: 0;
 }
 
-.delay-100 { animation-delay: 100ms; }
-.delay-200 { animation-delay: 200ms; }
-.delay-300 { animation-delay: 300ms; }
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
 
 /* Fixed Background Blob Wrapper: prevents any background element from causing horizontal scroll */
 .blob-wrapper {
@@ -342,16 +366,19 @@ button {
     opacity: 0.3;
     max-width: 90vw;
   }
+
   .blob-1 {
     width: 280px;
     height: 280px;
     top: -4%;
   }
+
   .blob-2 {
     width: 260px;
     height: 260px;
     bottom: 2%;
   }
+
   .blob-3 {
     width: 220px;
     height: 220px;
