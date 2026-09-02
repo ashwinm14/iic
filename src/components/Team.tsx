@@ -34,10 +34,10 @@ export default function Team() {
     <section id="team" className="section">
       <div className="container">
         <div className={styles.header}>
-          <span className={styles.subtitle}>
+          {/* <span className={styles.subtitle}>
             <Sparkles size={14} style={{ display: "inline", marginRight: "6px" }} />
             IIC Committee &apos;26–&apos;27
-          </span>
+          </span> */}
           <h2 className="heading-lg">
             Our <span className="text-gradient">Core Committee</span>
           </h2>

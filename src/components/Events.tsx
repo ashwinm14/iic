@@ -82,8 +82,8 @@ export default function Events() {
           })}
         </div>
         
-        <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
-          <a href="#about" className="btn btn-outline">Explore Full Calendar & Archives</a>
+        <div className={styles.bottomAction}>
+          <a href="#about" className={`btn btn-outline ${styles.fullCalendarBtn}`}>Explore Full Calendar & Archives</a>
         </div>
       </div>
     </section>

@@ -15,8 +15,8 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 1.75rem;
 }
 
 .card {
@@ -24,22 +24,22 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border-radius: 1rem;
+  border-radius: 1.25rem;
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
-  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.07);
   border-color: #cbd5e1;
 }
 
 .imagePlaceholder {
   width: 100%;
-  height: 150px;
+  height: 140px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,8 +47,8 @@
 }
 
 .iconCircle {
-  width: 62px;
-  height: 62px;
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -63,7 +63,7 @@
 }
 
 .cardBody {
-  padding: 1.75rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -73,7 +73,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
 }
 
 .date {
@@ -93,16 +95,16 @@
 }
 
 .title {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.65rem;
   color: #0f172a;
 }
 
 .description {
   color: #64748b;
-  font-size: 0.925rem;
-  margin-bottom: 1.75rem;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
   line-height: 1.6;
   flex-grow: 1;
 }
@@ -113,6 +115,7 @@
   justify-content: space-between;
   border-top: 1px solid #f1f5f9;
   padding-top: 1rem;
+  margin-top: auto;
 }
 
 .exploreBtn {
@@ -124,10 +127,66 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0;
+  cursor: pointer;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .exploreBtn:hover {
   transform: translateX(4px);
   opacity: 0.85;
+}
+
+.bottomAction {
+  text-align: center;
+  margin-top: 3.5rem;
+}
+
+.fullCalendarBtn {
+  min-height: 44px;
+}
+
+@media (max-width: 768px) {
+  .header {
+    margin-bottom: 2.5rem;
+  }
+  .grid {
+    gap: 1.25rem;
+  }
+  .cardBody {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .bottomAction {
+    margin-top: 2.25rem;
+  }
+  .fullCalendarBtn {
+    width: 100% !important;
+    min-height: 48px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .imagePlaceholder {
+    height: 120px;
+  }
+  .iconCircle {
+    width: 48px;
+    height: 48px;
+  }
+  .title {
+    font-size: 1.05rem;
+  }
+  .description {
+    font-size: 0.85rem;
+  }
+  .metaRow {
+    gap: 0.4rem;
+  }
 }

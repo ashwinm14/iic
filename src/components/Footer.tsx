@@ -68,7 +68,7 @@ export default function Footer() {
 
       <div className={`container ${styles.bottom}`}>
         <p>&copy; {new Date().getFullYear()} Institution&apos;s Innovation Council. All rights reserved.</p>
-        <div style={{ display: 'flex', gap: '1.5rem' }}>
+        <div className={styles.bottomLinks}>
           <Link href="#" className={styles.bottomLink}>Privacy Policy</Link>
           <Link href="#" className={styles.bottomLink}>Terms of Service</Link>
           <Link href="#" className={styles.bottomLink}>MoE Guidelines</Link>
