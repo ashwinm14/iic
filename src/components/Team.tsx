@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { IIC_TEAM_FALLBACK, IICTeamMember } from "@/lib/knowledgeBase";
 import styles from "./Team.module.css";
@@ -54,7 +54,7 @@ export default function Team() {
     setActiveIndex((prev) => (prev - 1 + team.length) % team.length);
   };
 
-  const getCardStyle = (index: number) => {
+  const getCardStyle = (index: number): React.CSSProperties => {
     const total = team.length;
     if (total === 0) return {};
     
